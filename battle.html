@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Pokémon World Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pokemon-list.html">Pokémon List</a></li>
+                <li><a href="pokedex.html">Pokédex</a></li>
+                <li><a href="battle.html">Battle</a></li>
+                <li><a href="evolution.html">Evolution</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="battle">
+            <h1>Battle</h1>
+            <div class="battle-area">
+                <div class="pokemon-select">
+                    <label for="pokemon1">Select Pokémon 1:</label>
+                    <select id="pokemon1">
+                        <option value="Pikachu">Pikachu</option>
+                        <option value="Charizard">Charizard</option>
+                        <option value="Bulbasaur">Bulbasaur</option>
+                        <option value="Squirtle">Squirtle</option>
+                    </select>
+                </div>
+                <div class="pokemon-select">
+                    <label for="pokemon2">Select Pokémon 2:</label>
+                    <select id="pokemon2">
+                        <option value="Charizard">Charizard</option>
+                        <option value="Pikachu">Pikachu</option>
+                        <option value="Squirtle">Squirtle</option>
+                        <option value="Bulbasaur">Bulbasaur</option>
+                    </select>
+                </div>
+                <button id="battleBtn">Battle!</button>
+                <div id="battleResult" class="battle-result"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Pokémon World. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
