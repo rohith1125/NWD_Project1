@@ -1,4 +1,5 @@
 :root {
+    /* Light Theme Variables */
     --primary-color: #007aff;
     --secondary-color: #005bbb;
     --background-color: #f5f5f5;
@@ -6,41 +7,54 @@
     --button-bg-color: #007aff;
     --button-hover-bg-color: #005bbb;
     --button-text-color: #fff;
+
+    /* Dark Theme Variables */
     --dark-bg-color: #2c3e50;
     --dark-text-color: #ecf0f1;
+    --dark-nav-color: #1a252f;
+    --dark-footer-color: #1a252f;
+    --dark-card-color: #2c3e50;
+    --dark-button-bg-color: #555;
+    --dark-button-hover-bg-color: #666;
+    --dark-button-text-color: #ffffff;
 }
 
+/* Base Styles */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode */
 body.dark-mode {
     background-color: var(--dark-bg-color);
     color: var(--dark-text-color);
 }
 
-header, footer {
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    padding: 15px 0;
+/* Main content flex-grow to push footer down */
+main {
+    flex: 1;
 }
 
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
 }
 
-.logo img {
-    width: 50px;
-    height: auto;
+body.dark-mode .navbar {
+    background-color: var(--dark-nav-color);
 }
 
 .nav-links {
@@ -59,37 +73,51 @@ header, footer {
     transition: color 0.3s ease;
 }
 
+body.dark-mode .nav-links a {
+    color: var(--dark-text-color);
+}
+
 .nav-links a:hover {
     color: var(--primary-color);
 }
 
+/* Hero Section */
 .hero {
     position: relative;
     text-align: center;
-    color: var(--text-color);
+    padding: 60px 20px;
+    overflow: hidden;
+    background: var(--primary-color);
 }
 
 .hero-image {
+    background-image: url('images/banner.jpg'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 80vh;
-    object-fit: cover;
     filter: brightness(70%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: 3em;
     margin: 0;
+    color: var(--button-text-color);
 }
 
 .hero p {
     font-size: 1.5em;
+    color: var(--button-text-color);
 }
 
 .cta-button {
@@ -107,11 +135,17 @@ header, footer {
     background-color: var(--button-hover-bg-color);
 }
 
+/* Features Section */
 .features {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .features {
+    background-color: var(--dark-bg-color);
 }
 
 .features article {
@@ -146,20 +180,11 @@ header, footer {
     color: var(--secondary-color);
 }
 
-#toggleTheme {
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+body.dark-mode .cta-link {
+    color: var(--dark-text-color);
 }
 
-#toggleTheme:hover {
-    background-color: var(--button-hover-bg-color);
-}
-
+/* Pokémon Gallery */
 .pokemon-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -175,6 +200,11 @@ header, footer {
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .pokemon-card {
+    background-color: var(--dark-card-color);
 }
 
 .pokemon-card img {
@@ -194,12 +224,22 @@ header, footer {
     color: #666;
 }
 
+body.dark-mode .pokemon-card p {
+    color: var(--dark-text-color);
+}
+
+/* Pokédex */
 .pokedex {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 800px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .pokedex {
+    background-color: var(--dark-nav-color);
 }
 
 table {
@@ -219,6 +259,11 @@ th {
     font-weight: bold;
 }
 
+body.dark-mode th {
+    background-color: var(--dark-nav-color);
+}
+
+/* Battle Section */
 .battle {
     text-align: center;
     padding: 50px 20px;
@@ -254,6 +299,11 @@ th {
     color: var(--button-bg-color);
 }
 
+body.dark-mode .battle-result {
+    color: var(--dark-text-color);
+}
+
+/* Evolution Section */
 .evolution {
     padding: 50px 20px;
     text-align: center;
@@ -282,6 +332,11 @@ figcaption {
     margin-top: 10px;
 }
 
+body.dark-mode figure img {
+    border: 2px solid var(--dark-text-color);
+}
+
+/* Contact Form */
 .contact-form {
     padding: 50px 20px;
     background-color: #fff;
@@ -289,6 +344,11 @@ figcaption {
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .contact-form {
+    background-color: var(--dark-nav-color);
 }
 
 .contact-form h1 {
@@ -336,6 +396,11 @@ button:hover {
     text-align: center;
 }
 
+body.dark-mode .form-message {
+    color: var(--dark-text-color);
+}
+
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -356,6 +421,12 @@ button:hover {
     width: 60%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--dark-nav-color);
+    color: var(--dark-text-color);
 }
 
 .close-btn {
@@ -372,6 +443,57 @@ button:hover {
     cursor: pointer;
 }
 
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    text-align: center;
+    padding: 15px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+body.dark-mode footer {
+    background-color: var(--dark-footer-color);
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(1.05);
+}
+
+/* Style for the SVG icon */
+.theme-toggle__expand {
+    width: 32px;
+    height: 32px;
+    fill: var(--text-color); /* Use your text color variable */
+    transition: fill 0.3s ease;
+}
+
+body.dark-mode .theme-toggle__expand {
+    fill: var(--button-text-color); /* Use color contrast for dark mode */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .features {
         flex-direction: column;
@@ -380,5 +502,13 @@ button:hover {
 
     .features article {
         margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
     }
 }

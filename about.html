@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Pokémon World - About Us</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/logo.png">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="images/logo.png" alt="Pokémon World Logo">
+                <a href="index.html"><img src="images/logo.png" alt="Pokémon World Logo"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -22,34 +22,35 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <!-- Dark mode toggle switch -->
+            <button class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em" fill="currentColor" class="theme-toggle__expand" viewBox="0 0 32 32">
+                    <clipPath id="theme-toggle__expand__cutout">
+                        <path d="M0-11h25a1 1 0 0017 13v30H0Z" />
+                    </clipPath>
+                    <g clip-path="url(#theme-toggle__expand__cutout)">
+                        <circle cx="16" cy="16" r="8.4" />
+                        <path d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z" />
+                    </g>
+                </svg>
+            </button>
         </nav>
     </header>
     <main>
-        <section class="about-section">
-            <h1>About Pokémon World</h1>
-            <p>Pokémon World is dedicated to bringing the most comprehensive and interactive Pokémon experience to fans around the globe. From detailed Pokédex information to exciting Pokémon battles, we have something for every Pokémon enthusiast.</p>
-            <ul class="about-list">
-                <li>Over 800 Pokémon species covered.</li>
-                <li>Interactive features like Pokémon battles and evolution showcases.</li>
-                <li>Responsive and accessible design for all devices.</li>
-            </ul>
-            <h2>Our Mission</h2>
-            <p>Our mission is to educate, entertain, and engage Pokémon fans of all ages. We aim to be the ultimate resource for everything Pokémon, with accurate data, engaging content, and an inclusive community.</p>
+        <section class="about">
+            <h1>About Us</h1>
+            <p>Welcome to Pokémon World! We are a community dedicated to bringing you the latest information, battles, and everything Pokémon. Explore our Pokédex, engage in battles, and learn more about Pokémon evolutions. We hope you enjoy your journey in the world of Pokémon!</p>
             <button id="aboutModalBtn">Learn More About Us</button>
-        </section>
-        <div id="aboutModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2>Pokémon World Team</h2>
-                <p>Our team is composed of Pokémon experts, developers, and designers who are passionate about creating the best possible experience for Pokémon fans.</p>
-                <ul>
-                    <li>Developers: John, Jane, and Alex</li>
-                    <li>Designers: Mia, Ethan, and Olivia</li>
-                    <li>Content Creators: Lucas, Emma, and Noah</li>
-                </ul>
-                <p>For more information, feel free to reach out through our contact page.</p>
+
+            <!-- Modal -->
+            <div id="aboutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Our Mission</h2>
+                    <p>At Pokémon World, we strive to be the ultimate resource for Pokémon enthusiasts. Whether you're looking for battle tips, Pokémon stats, or just want to explore the Pokédex, we've got you covered.</p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
     <footer>
         <p>© 2024 Pokémon World. All rights reserved.</p>

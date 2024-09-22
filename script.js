@@ -1,12 +1,22 @@
-// Ensure the DOM content is fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', function() {
-    // Toggle Light/Dark Mode
-    const toggleThemeButton = document.getElementById('toggleTheme');
-    if (toggleThemeButton) {
-        toggleThemeButton.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-        });
+    // Function to initialize theme based on localStorage
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
     }
+
+    // Apply the saved theme on load
+    initializeTheme();
+
+    // Toggle Light/Dark Mode
+    const themeToggleButton = document.querySelector('.theme-toggle');
+    themeToggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+    });
 
     // Battle Functionality
     const battleButton = document.getElementById('battleBtn');
@@ -19,18 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (pokemon1 === pokemon2) {
                 winner = "It's a tie!";
             } else if (pokemon1 === "Pikachu" && pokemon2 === "Charizard") {
-                winner = "Charizard";
+                winner = "The winner is Charizard";
             } else if (pokemon1 === "Charizard" && pokemon2 === "Pikachu") {
-                winner = "Charizard";
+                winner = "The winner is Charizard!";
             } else if (pokemon1 === "Bulbasaur" && pokemon2 === "Squirtle") {
-                winner = "Squirtle";
+                winner = "The winner is Squirtle!";
             } else if (pokemon1 === "Squirtle" && pokemon2 === "Bulbasaur") {
-                winner = "Squirtle";
+                winner = "The winner is Squirtle!";
             } else {
                 winner = "Battle is too close to call!";
             }
 
-            document.getElementById('battleResult').textContent = `The winner is ${winner}!`;
+            document.getElementById('battleResult').textContent = `${winner}!`;
         });
     }
 
